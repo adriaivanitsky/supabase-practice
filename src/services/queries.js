@@ -16,21 +16,36 @@ export async function getDirectorNames() {
 }
 
 export async function getMovieById(id) {
+  const response = await client.from('movies').select('*').match({ id }).single();
+  return checkError(response);
   // return the movie with the given id
 }
 
 export async function getMovieByTitle(title) {
+  const response = await client.from('movies').select('*').match({ title }).single();
+  return checkError(response);
   // return the movie with the given title
 }
 
 export async function getOldestMovie() {
+  const response = await client.from('movies').select('title').gt('year', 0).limit(1).single();
+  return checkError(response);
   // return the oldest movie (assume the database is not sorted)
 }
 
 export async function getMoviesAfter(year) {
+  const response = await client.from('movies').select('*').gt('year', year);
+  return checkError(response);
   // return movies made after the year passed in
 }
 
 export async function getHighestGrossingMovie() {
+  const response = await client
+    .from('movies')
+    .select('*')
+    .order('box_office', { ascending: false })
+    .limit(1)
+    .single();
+  return checkError(response);
   // return movie with the highest box office total
 }

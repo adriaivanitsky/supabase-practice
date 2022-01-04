@@ -27,7 +27,7 @@ test('getDirectorNames returns the list of director names', async () => {
   expect(Object.keys(resp[0]).length).toBe(1); // should ONLY return the name
 });
 
-test.only('getMovieById returns a specific movie by ID', async () => {
+test('getMovieById returns a specific movie by ID', async () => {
   const resp = await getMovieById(2);
   expect(resp.title).toBe('Episode V - The Empire Strikes Back');
 });
