@@ -1,13 +1,17 @@
 import { checkError, client } from './client.js';
 export async function getMovies() {
-  // return the list of all movies
+  const response = await client.from('movies').select('*');
+  return checkError(response);
 }
 
 export async function getMoviesWithDirector() {
-  // return the list of all the movies with their director
+  const response = await client.from('movies').select(`*, directors(*)`);
+  return checkError(response);
 }
 
 export async function getDirectorNames() {
+  const response = await client.from('directors').select(`name`);
+  return checkError(response);
   // return the list of the director's names
 }
 

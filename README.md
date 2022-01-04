@@ -7,3 +7,5 @@
 1. Run `npm test` -- you should have 8 failed tests
 1. Complete the functions in `services/queries.js` using the Supabase client
 1. As a stretch, you can try rewriting the queries using the Supabase API and `fetch`
+
+on the left side of supabase, at the bottom click on the gear, then api, to find the supabase url and key you'll need to put in your .env.test.local file
